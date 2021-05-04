@@ -48,6 +48,7 @@ jobs:
             login $HEROKU_EMAIL
             password $HEROKU_API_KEY
           EOF
+          
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
@@ -55,7 +56,7 @@ jobs:
       - name: Add Heroku remote
         run: heroku git:remote --app $HEROKU_APP_NAME
     
-    env:
-      HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      - name: Push to Heroku
+        env:
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+      - name: PUSH  
         run: git push heroku master
